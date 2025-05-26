@@ -8,6 +8,19 @@ import Image from "next/image";
 
 export default function Home() {
   const router = useRouter();
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL;
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetch(`${backendUrl}/live`)
+        .then(res => res)
+        .then(console.log)
+        .catch(console.error);
+    }, 10000); // every 10 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   // useEffect(() => {
   //   // Check if user is logged in
