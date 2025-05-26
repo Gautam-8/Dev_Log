@@ -17,7 +17,7 @@ export default function Home() {
         .then(res => res)
         .then(console.log)
         .catch(console.error);
-    }, 10000); // every 10 seconds
+    }, (12 * 60 * 1000)); // every 10 min
 
     return () => clearInterval(interval);
   }, []);
